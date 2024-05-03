@@ -2,6 +2,7 @@ package one.digitalinovation.laboojava.entidade;
 
 /**
  * Classe que representa a entidade cliente. Este pode fazer um pedido.
+ * 
  * @author thiago leite
  */
 public class Cliente {
@@ -17,8 +18,8 @@ public class Cliente {
     private String cpf;
 
     public Cliente() {
-        this.nome = "Fulano";
-        this.cpf = "123456789011";
+        this.nome = "André Miani";
+        this.cpf = "12345678901";
     }
 
     public String getNome() {
