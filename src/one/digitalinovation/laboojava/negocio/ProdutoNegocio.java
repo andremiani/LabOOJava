@@ -129,6 +129,8 @@ public class ProdutoNegocio {
             }
         }
 
+        System.out.println("Nenhum livro encontrado");
+
         return Optional.empty();
     }
 
@@ -147,6 +149,8 @@ public class ProdutoNegocio {
                 return Optional.of(produto);
             }
         }
+
+        System.out.println("Nenhum caderno encontrado");
 
         return Optional.empty();
     }
