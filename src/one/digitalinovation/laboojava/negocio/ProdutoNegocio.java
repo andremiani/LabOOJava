@@ -1,7 +1,8 @@
 package one.digitalinovation.laboojava.negocio;
 
 import one.digitalinovation.laboojava.basedados.Banco;
-import one.digitalinovation.laboojava.entidade.Pedido;
+import one.digitalinovation.laboojava.entidade.Caderno;
+import one.digitalinovation.laboojava.entidade.Livro;
 import one.digitalinovation.laboojava.entidade.Produto;
 
 import java.util.Optional;
@@ -111,4 +112,43 @@ public class ProdutoNegocio {
             }
         }
     }
+
+    /**
+     * Obtem um produto a partir de seu nome de cadastro.
+     * 
+     * @param codigo Código de cadastro do produto
+     * @return Optional indicando a existência ou não do Produto
+     */
+    public Optional<Produto> consultarLivroPorNome(String nome) {
+
+        for (Produto produto : bancoDados.getProdutos()) {
+
+            if (produto instanceof Livro && ((Livro) produto).getNome().startsWith(nome)) {
+                System.out.println("Produto: " + produto);
+                return Optional.of(produto);
+            }
+        }
+
+        return Optional.empty();
+    }
+
+    /**
+     * Obtem um produto a partir de seu nome de cadastro.
+     * 
+     * @param codigo Código de cadastro do produto
+     * @return Optional indicando a existência ou não do Produto
+     */
+    public Optional<Produto> consultarCadernoPorNome(String nome) {
+
+        for (Produto produto : bancoDados.getProdutos()) {
+
+            if (produto instanceof Caderno && ((Caderno) produto).getNome().startsWith(nome)) {
+                System.out.println("Produto: " + produto);
+                return Optional.of(produto);
+            }
+        }
+
+        return Optional.empty();
+    }
+
 }

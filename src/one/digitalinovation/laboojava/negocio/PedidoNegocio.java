@@ -7,6 +7,7 @@ import one.digitalinovation.laboojava.entidade.Produto;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Classe para manipular a entidade {@link Pedido}.
@@ -119,4 +120,23 @@ public class PedidoNegocio {
             }
         }
     }
+
+    /**
+     * Consulta o pedido pelo codigo.
+     * 
+     * @param codigo codigo do pedido
+     * @return Optional indicando a existência ou não do Pedido
+     */
+
+    public Optional<Pedido> consultarPedido(String codigo) {
+        for (Pedido pedido : bancoDados.getPedidos()) {
+            if (pedido.getCodigo().equals(codigo)) {
+                return Optional.of(pedido);
+            }
+        }
+
+        System.out.println("Nenhum pedido encontrado");
+        return Optional.empty();
+    }
+
 }
